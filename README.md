@@ -5,7 +5,7 @@
 This is boilerplate Laravel 5.5
 
 ## Configuration
-1. laravel configuration
+### laravel configuration
 ```sh
 laravel new laravel-heroku
 composer require predis/predis
@@ -15,7 +15,7 @@ chmod -fr 777 storage/framework/sessions
 chmod -fr 777 storage/framework/views
 ```
 
-2. heroku configuration
+### heroku configuration
 ```sh
 app_name=my-laravel-heroku
 heroku apps:create $app_name
@@ -27,14 +27,17 @@ heroku config:set QUEUE_DRIVER=redis SESSION_DRIVER=redis CACHE_DRIVER=redis --a
 heroku config:set APP_ENV=development APP_DEBUG=true APP_LOG_LEVEL=debug --app $app_name
 ```
 
-3. heroku configuration
-open your heroku app in deploy tab, connect github in deployment method ?
+### heroku configuration
+open your heroku app in deploy tab, connect github in deployment method ???????? 
 ```sh
-heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git 
+heroku config:set BUILDPACK_URL=https://github.com/richasdy/laravel-heroku.git
 ```
 
-4. additinal laravel configuration
-add code below in config/database.php
+### additional laravel configuration
+add code below in 
+```sh
+config/database.php
+```
 ```php
 if (getenv('REDIS_URL')) {
     $redis_url = parse_url(getenv('REDIS_URL'));
