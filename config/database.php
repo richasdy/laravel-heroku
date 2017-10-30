@@ -8,6 +8,16 @@ if (getenv('REDIS_URL')) {
     putenv('REDIS_PASSWORD='.$url['pass']);
 }
 
+if (getenv('DATABASE_URL')) {
+    $db_url = parse_url(getenv('DATABASE_URL'));
+
+    putenv('DB_HOST='.$db_url['host']);
+    putenv('DB_PORT='.$db_url['port']);
+    putenv('DB_DATABASE='.substr($db_url['path'], 1));
+    putenv('DB_USERNAME='.$db_url['user']);
+    putenv('DB_PASSWORD='.$db_url['pass']);
+}
+
 return [
 
     /*
